@@ -1,5 +1,5 @@
 try{
-    if (Math.random() > 0.5) throw new Error('Erro:' + e.message)
+    if (Math.random() > 0.5) throw new Error('Erro:')
 }catch(e){
-    throw new Error('Erro:' + e.message)
+    throw 'Erro'
 }
