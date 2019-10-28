@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ModuloII-Q1</title>
+    <style>
+        div {
+            font-size: 60px;
+            padding: 30px;
+            border: solid #222;
+        }
+
+        .absolute {
+            position: absolute;
+            left: 550px;
+            top: 100px;
+            background-color: rebeccapurple;
+        }
+
+        .relative {
+            position: relative;
+            left: 30px;
+            top: 10px;
+            background-color: navy;
+        }
+
+        .fixed {
+            position: fixed;
+            right: 0px;
+            bottom: 30px;
+            background-color: orangered;
+        }
+
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 15px;
+            background-color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <div class="static" style="background-color: rgb(169, 205, 241);">Static</div>
+    <div class="fixed">Posição fixa</div>
+    <div class="relative">Posição relativa</div>
+    <div class="absolute">Posição absoluta</div>
+    <div class="sticky">Posição sticky</div>
+    <p style="padding-bottom: 2000px;"></p>
+</body>
+</html>
