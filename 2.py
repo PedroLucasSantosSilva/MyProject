@@ -18,4 +18,11 @@ for l in range(0, linhas):
             maior = matriz[l][c]
         elif matriz[l][c] > maior:
             maior = matriz[l][c]
-print(f'O maior elemento é {maior}')
+for l in range(0, linhas):
+    for c in range(0, colunas):
+        matriz[l][c] *= maior
+print(f'O maior elemento da matriz é: {maior}')
+for l in range(0, linhas):
+    for c in range(0, colunas):
+            print(f'[{matriz[l][c]:^5}]', end='')
+    print()
