@@ -6,6 +6,7 @@ item = []
 filmes_user = []
 users_sem = []
 desc = []
+cont = 0
 for i in range(len(u_data)):
     a = u_data[i]
     a = a.split()
@@ -21,15 +22,16 @@ for j in range(len(u_data)):
 
 filme = str(input('Digite o filme:'))
 
-for z in range(len(data)):
-    if data[z][1] == filme:
-        for u in range(len(filmes_user)):
-            if data[z][1] != filmes_user[u]:
-                desc.append(data[z][0])
-            else:
-                break
+if filme not in filmes_user:
+    for z in range(len(data)):
+        if data[z][1] == filme:
+            users_sem.append([data[z][0]])
 
-for r in range(len(desc)):
-    if desc[r] not in users_sem:
-        users_sem.append(desc[r])
+for u in range(len(users_sem)):
+    for l in range(len(data)):
+        if users_sem[u] == data[l][0]:
+            for c in range(len(filmes_user)):
+                if data[l][1] == filmes_user[c]:
+                    cont += 1
+    users_sem[u].append(cont)
 print(users_sem)
