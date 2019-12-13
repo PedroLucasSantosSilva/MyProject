@@ -8,6 +8,7 @@ users_film = []
 filmes_users = []
 aux_users = []
 contador = []
+similaridade = []
 cont = 0
 for i in range(len(u_data)):
     a = u_data[i]
@@ -47,4 +48,11 @@ for a in range(len(filmes_users)):
             cont += 1
     contador.append(cont)
     cont = 0
-print(len(contador))
+for c in range(len(contador)):
+    if max(contador) == contador[c]:
+        similaridade.append(contador.index(contador[c]))
+if len(similaridade) == 1:
+    if len(similaridade) == 1:
+        for d in range(len(data)):
+            if data[d][0] == users_film[contador.index(max(contador))] and data[d][1] == filme:
+                print(f'A nota para o filme {filme} de acordo com a similarida é: {data[d][2]}')
