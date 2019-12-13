@@ -4,8 +4,11 @@ user = str(input('Digite o usuário:'))
 data = []
 item = []
 filmes_user = []
-users_sem = []
-dados_users = []
+users_film = []
+filmes_users = []
+aux_users = []
+contador = []
+cont = 0
 for i in range(len(u_data)):
     a = u_data[i]
     a = a.split()
@@ -24,19 +27,24 @@ filme = str(input('Digite o filme:'))
 if filme not in filmes_user:
     for z in range(len(data)):
         if data[z][1] == filme:
-            users_sem.append([data[z][0]])
+            users_film.append(data[z][0])
 
-for u in range(len(users_sem)):
-    for l in range(len(data)):
-        if users_sem[u] == data[l][0] and data[l][1] != filme:
-            dados_users.append(data[l])
+for n in range(len(users_film)):
+    for m in range(len(data)):
+        if users_film[n] == data[m][0]:
+            aux_users.append(data[m][1])
+    filmes_users.append(aux_users[:])
+    aux_users.clear()
 
-for h in range(len(filmes_user)):
-    for c in range(len(dados_users)):
-        cont = 0
-        if dados_users[c][1] == filmes_user[h]:
+##print(users_film)
+##for movies in filmes_users:
+##print(movies)
+
+
+for a in range(len(filmes_users)):
+    for b in range(len(filmes_users[a])):
+        if filmes_users[a][b] in filmes_user:
             cont += 1
-        for a in range(len(users_sem)):
-            if dados_users[c][0] == users_sem[a]:
-                users_sem[a].append(cont)
-print(users_sem)
+    contador.append(cont)
+    cont = 0
+print(len(contador))
