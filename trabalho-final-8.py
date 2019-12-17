@@ -41,25 +41,27 @@ if filme not in filmes_user:
         aux_users.clear()
 
     for a in range(len(filmes_users)):
+        cont = 0
         for b in range(len(filmes_users[a])):
             if filmes_users[a][b] in filmes_user:
                 cont += 1
         contador.append(cont)
-        cont = 0
     for c in range(len(contador)):
         if max(contador) == contador[c]:
-            maximos.append(contador.index(contador[c]))
+            maximos.append(contador[c])
 
     if len(maximos) == 1:
         print('bobo 1')
         for d in range(len(data)):
             if data[d][0] == users_film[contador.index(max(contador))] and data[d][1] == filme:
-                print(f'A nota para o filme {filme} de acordo com a similaridade é: {data[d][2]}')
+                print(f'A nota para o filme {filme} de acordo com a similaridade é: {data[d][2]},'
+                      f' do usuário {data[d][0]}')
     else:
         print('bobo 2')
         for e in range(len(contador)):
             for f in range(len(data)):
-                if data[f][0] == users_film[contador.index(contador[e])] and data[f][1] == filme:
+                if data[f][0] == users_film[contador.index(contador[e])] and data[f][1] == filme\
+                        and contador[e] in maximos:
                     for g in range(len(filmes_user)):
                         for h in range(len(data)):
                             if data[f][1] == filmes_user[g] and data[h][0] == user and\
@@ -77,6 +79,7 @@ if filme not in filmes_user:
                                     similaridade.clear()
                                     similaridade.append(data[f])
                                     cont2 = 0
-        print(f'A nota para o filme {filme} de acordo com a similaridade é: {similaridade[0][2]}')
+        print(f'A nota para o filme {filme} de acordo com a similaridade é: {similaridade[0][2]}, '
+              f'do usuário {similaridade[0][0]}')
 else:
     print('Filme já assistido')
