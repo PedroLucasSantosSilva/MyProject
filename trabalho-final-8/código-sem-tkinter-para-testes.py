@@ -3,6 +3,7 @@ u_item = open('u.item', 'r').readlines()
 user = str(input('Digite o usuário:'))
 data = []
 item = []
+nome_f = ''
 filmes_user = []
 users_film = []
 filmes_users = []
@@ -10,7 +11,6 @@ aux_users = []
 contador = []
 similaridade = []
 maximos = []
-cont = 0
 cont2 = 0
 menor = 0
 for i in range(len(u_data)):
@@ -19,7 +19,7 @@ for i in range(len(u_data)):
     data.append(a)
 for i in range(len(u_item)):
     b = u_item[i]
-    b = b.split()
+    b = b.split('|')
     item.append(b)
 
 for j in range(len(u_data)):
@@ -27,6 +27,9 @@ for j in range(len(u_data)):
         filmes_user.append(data[j][1])
 
 filme = str(input('Digite o filme:'))
+for f in range(len(item)):
+    if filme == item[f][0]:
+        nome_f = item[f][1]
 
 if filme not in filmes_user:
     for z in range(len(data)):
@@ -51,13 +54,12 @@ if filme not in filmes_user:
             maximos.append(contador[c])
 
     if len(maximos) == 1:
-        print('bobo 1')
+        print('Contador maior')
         for d in range(len(data)):
             if data[d][0] == users_film[contador.index(max(contador))] and data[d][1] == filme:
-                print(f'A nota para o filme {filme} de acordo com a similaridade é: {data[d][2]},'
-                      f' do usuário {data[d][0]}')
+                print(f'A nota para: {filme} | "{nome_f}", de acordo com a similaridade é: {data[d][2]}.')
     else:
-        print('bobo 2')
+        print('Contador igual')
         for e in range(len(contador)):
             for f in range(len(data)):
                 if data[f][0] == users_film[contador.index(contador[e])] and data[f][1] == filme\
@@ -79,7 +81,6 @@ if filme not in filmes_user:
                                     similaridade.clear()
                                     similaridade.append(data[f])
                                     cont2 = 0
-        print(f'A nota para o filme {filme} de acordo com a similaridade é: {similaridade[0][2]}, '
-              f'do usuário {similaridade[0][0]}')
+        print(f'A nota para: {filme} | "{nome_f}", de acordo com a similaridade é: {similaridade[0][2]}.')
 else:
-    print('Filme já assistido')
+    print('Filme já assistido!')
